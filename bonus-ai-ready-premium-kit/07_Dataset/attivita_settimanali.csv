@@ -1,0 +1,13 @@
+giorno;attivita;ore;completata
+Lunedì;Studio Python;2.0;si
+Lunedì;Palestra;1.0;si
+Martedì;Studio Python;1.5;si
+Martedì;Lettura;0.5;no
+Mercoledì;Studio Python;2.0;si
+Mercoledì;Progetto personale;1.0;no
+Giovedì;Studio Python;1.5;si
+Venerdì;Ripasso esercizi;2.0;si
+Venerdì;Palestra;1.0;si
+Sabato;Mini-progetto;3.0;si
+Domenica;Riposo;0.0;si
+Domenica;Pianificazione settimana;0.5;si

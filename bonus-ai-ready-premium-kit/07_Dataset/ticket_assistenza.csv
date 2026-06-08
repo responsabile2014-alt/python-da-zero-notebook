@@ -1,0 +1,13 @@
+id_ticket;cliente;problema;priorita;stato
+T001;Anna Bianchi;Login non funziona;alta;aperto
+T002;Marco Rossi;Password dimenticata;media;chiuso
+T003;Sara Verdi;Errore pagamento;alta;aperto
+T004;Luca Neri;Domanda fatturazione;bassa;chiuso
+T005;Elena Gialli;App si blocca;alta;in lavorazione
+T006;Paolo Blu;Richiesta rimborso;media;aperto
+T007;Giulia Viola;Modifica anagrafica;bassa;chiuso
+T008;Davide Rosa;Email non ricevuta;media;in lavorazione
+T009;Chiara Grigi;Account bloccato;alta;aperto
+T010;Matteo Bruni;Domanda generica;bassa;chiuso
+T011;Laura Conti;Errore caricamento;media;aperto
+T012;Stefano Mari;Problema stampa;bassa;in lavorazione

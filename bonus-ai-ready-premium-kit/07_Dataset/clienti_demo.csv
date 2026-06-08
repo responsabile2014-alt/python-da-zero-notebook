@@ -1,0 +1,13 @@
+id;nome;citta;spesa_totale;attivo
+1;Anna Bianchi;Milano;1250.50;si
+2;Marco Rossi;Roma;890.00;si
+3;Sara Verdi;Milano;2300.75;si
+4;Luca Neri;Torino;450.20;no
+5;Elena Gialli;Roma;1780.00;si
+6;Paolo Blu;Napoli;320.50;no
+7;Giulia Viola;Milano;990.00;si
+8;Davide Rosa;Torino;1560.30;si
+9;Chiara Grigi;Napoli;670.80;no
+10;Matteo Bruni;Roma;2100.00;si
+11;Laura Conti;Milano;540.00;si
+12;Stefano Mari;Torino;1320.90;si

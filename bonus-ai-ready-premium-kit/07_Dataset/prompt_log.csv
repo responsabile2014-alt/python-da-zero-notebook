@@ -1,0 +1,13 @@
+data;argomento;prompt_usato;utile
+2025-01-10;Cicli;Spiegami il ciclo for con esempio semplice;si
+2025-01-11;Errori;Cosa significa IndexError;si
+2025-01-12;Liste;Differenza tra append e insert;si
+2025-01-13;Funzioni;Come restituire più valori da una funzione;si
+2025-01-14;Dizionari;Quando usare get invece delle parentesi;si
+2025-01-15;Debug;Trova l errore in questo codice;no
+2025-01-16;Stringhe;Come contare le vocali in una parola;si
+2025-01-17;File;Come leggere un file riga per riga;si
+2025-01-18;Condizioni;Differenza tra and e or;si
+2025-01-19;CSV;Come separare i campi di una riga CSV;si
+2025-01-20;Analisi;Come calcolare una media da una lista;si
+2025-01-21;AI;Come verificare se il codice dell'AI è corretto;si

@@ -1,0 +1,13 @@
+voce;tipo;importo_previsto;importo_reale
+Stipendio;entrata;2200.00;2200.00
+Affitto;uscita;750.00;750.00
+Bollette;uscita;180.00;210.50
+Spesa alimentare;uscita;450.00;478.30
+Trasporti;uscita;120.00;135.00
+Svago;uscita;150.00;95.00
+Risparmio;uscita;300.00;300.00
+Rimborso spese;entrata;80.00;80.00
+Assicurazione;uscita;90.00;90.00
+Telefono e internet;uscita;45.00;45.00
+Palestra;uscita;40.00;40.00
+Extra;uscita;100.00;165.20
