@@ -51,21 +51,21 @@ Per questo motivo, soprattutto all'inizio, è consigliato eseguire una cella all
 
 | Tipo | Notebook | Link |
 |------|----------|------|
-| Esercizi | `00_Workbook_150_Esercizi.ipynb` - I 150 esercizi del workbook, con celle da completare | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/00_Workbook_150_Esercizi.ipynb) |
-| Soluzioni | `00_Soluzioni_150_Commentate.ipynb` - Le 150 soluzioni eseguibili e commentate | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/00_Soluzioni_150_Commentate.ipynb) |
-| Mini-progetto | `01_Budget_Mensile.ipynb` - Budget: entrate, uscite, saldo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/01_Budget_Mensile.ipynb) |
-| Mini-progetto | `02_Registro_Spese.ipynb` - Analizzare le spese per categoria | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/02_Registro_Spese.ipynb) |
-| Mini-progetto | `03_Rubrica_Contatti.ipynb` - Cercare, aggiungere e contare contatti | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/03_Rubrica_Contatti.ipynb) |
-| Mini-progetto | `04_Analisi_Voti.ipynb` - Medie per studente e per materia | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/04_Analisi_Voti.ipynb) |
-| Mini-progetto | `05_Mini_Magazzino.ipynb` - Valore del magazzino e scorte basse | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/05_Mini_Magazzino.ipynb) |
-| Mini-progetto | `06_Promemoria_File.ipynb` - Salvare promemoria su file di testo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/06_Promemoria_File.ipynb) |
-| Mini-progetto | `07_Lettore_File.ipynb` - Statistiche su un file di testo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/07_Lettore_File.ipynb) |
-| Mini-progetto | `08_Analisi_CSV.ipynb` - Analisi di un CSV senza librerie esterne | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/08_Analisi_CSV.ipynb) |
-| Mini-progetto | `09_Ticket_Assistenza.ipynb` - Gestione ticket per stato e priorità | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/09_Ticket_Assistenza.ipynb) |
-| Mini-progetto | `10_Attivita_Settimanali.ipynb` - Ore totali, completate, giorno più impegnato | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/10_Attivita_Settimanali.ipynb) |
-| Mini-progetto | `11_Prompt_Log.ipynb` - Analizzare i prompt usati con l'AI | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/11_Prompt_Log.ipynb) |
-| Mini-progetto | `12_Tutor_AI_Debug.ipynb` - Leggere e correggere codice (con errore didattico) | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/12_Tutor_AI_Debug.ipynb) |
-| Mini-progetto | `13_Capstone_AI_Ready.ipynb` - Dal dato grezzo al report completo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/principale/bonus-ai-ready-premium-kit/06_Notebook_Colab/13_Capstone_AI_Ready.ipynb) |
+| Esercizi | `00_Workbook_150_Esercizi.ipynb` - I 150 esercizi del workbook, con celle da completare | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/00_Workbook_150_Esercizi.ipynb) |
+| Soluzioni | `00_Soluzioni_150_Commentate.ipynb` - Le 150 soluzioni eseguibili e commentate | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/00_Soluzioni_150_Commentate.ipynb) |
+| Mini-progetto | `01_Budget_Mensile.ipynb` - Budget: entrate, uscite, saldo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/01_Budget_Mensile.ipynb) |
+| Mini-progetto | `02_Registro_Spese.ipynb` - Analizzare le spese per categoria | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/02_Registro_Spese.ipynb) |
+| Mini-progetto | `03_Rubrica_Contatti.ipynb` - Cercare, aggiungere e contare contatti | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/03_Rubrica_Contatti.ipynb) |
+| Mini-progetto | `04_Analisi_Voti.ipynb` - Medie per studente e per materia | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/04_Analisi_Voti.ipynb) |
+| Mini-progetto | `05_Mini_Magazzino.ipynb` - Valore del magazzino e scorte basse | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/05_Mini_Magazzino.ipynb) |
+| Mini-progetto | `06_Promemoria_File.ipynb` - Salvare promemoria su file di testo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/06_Promemoria_File.ipynb) |
+| Mini-progetto | `07_Lettore_File.ipynb` - Statistiche su un file di testo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/07_Lettore_File.ipynb) |
+| Mini-progetto | `08_Analisi_CSV.ipynb` - Analisi di un CSV senza librerie esterne | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/08_Analisi_CSV.ipynb) |
+| Mini-progetto | `09_Ticket_Assistenza.ipynb` - Gestione ticket per stato e priorità | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/09_Ticket_Assistenza.ipynb) |
+| Mini-progetto | `10_Attivita_Settimanali.ipynb` - Ore totali, completate, giorno più impegnato | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/10_Attivita_Settimanali.ipynb) |
+| Mini-progetto | `11_Prompt_Log.ipynb` - Analizzare i prompt usati con l'AI | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/11_Prompt_Log.ipynb) |
+| Mini-progetto | `12_Tutor_AI_Debug.ipynb` - Leggere e correggere codice (con errore didattico) | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/12_Tutor_AI_Debug.ipynb) |
+| Mini-progetto | `13_Capstone_AI_Ready.ipynb` - Dal dato grezzo al report completo | [Apri in Colab](https://colab.research.google.com/github/responsabile2014-alt/python-da-zero-notebook/blob/main/bonus-ai-ready-premium-kit/06_Notebook_Colab/13_Capstone_AI_Ready.ipynb) |
 
 ---
 
@@ -91,7 +91,7 @@ Per avere tutto sul tuo computer:
 3. Scegli **Download ZIP**.
 4. Estrai l'archivio: troverai la cartella `bonus-ai-ready-premium-kit` con tutti i materiali.
 
-Link diretto allo ZIP: https://github.com/responsabile2014-alt/python-da-zero-notebook/archive/refs/heads/principale.zip
+Link diretto allo ZIP: https://github.com/responsabile2014-alt/python-da-zero-notebook/archive/refs/heads/main.zip
 
 I notebook (`.ipynb`) si aprono in Colab; i dataset (`.csv`) sono i dati che i notebook utilizzano.
 

@@ -20,7 +20,7 @@ Per le istruzioni complete e i link "Apri in Colab", apri il [README del kit](bo
 
 ## Download di tutti i materiali
 
-Pulsante verde **Code > Download ZIP**, oppure: https://github.com/responsabile2014-alt/python-da-zero-notebook/archive/refs/heads/principale.zip
+Pulsante verde **Code > Download ZIP**, oppure: https://github.com/responsabile2014-alt/python-da-zero-notebook/archive/refs/heads/main.zip
 
 ---
 
