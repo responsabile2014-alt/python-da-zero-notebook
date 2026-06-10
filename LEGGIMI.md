@@ -1,6 +1,6 @@
 # Notebook companion – "Python da Zero con Google Colab"
 
-22 notebook `.ipynb` pronti da aprire ed eseguire in Google Colab, uno per capitolo (o gruppo).
+22 notebook `.ipynb` pronti da aprire ed eseguire in Google Colab, uno per capitolo (o gruppo). Li trovi nella cartella [`notebook-operativi-libro/`](notebook-operativi-libro/).
 
 ## Come usarli
 1. Vai su https://colab.research.google.com
@@ -37,6 +37,3 @@
 | `30_datetime.ipynb` | Cap. 30 – date e orari |
 | `31_Esercizi.ipynb` | Cap. 31 – esercizi Livelli 1–8 (consegna + soluzione) |
 | `32_Progetto_Finale.ipynb` | Cap. 32 – progetto Gestione Spese Personali |
-
-## Idea per il libro (collegamento all'improvement #1)
-Carica i notebook in un repository GitHub o in una cartella Drive pubblica, poi metti all'inizio di ogni capitolo un **link breve o QR code** che apre direttamente il notebook corrispondente in Colab. Il lettore clicca ed esegue, senza ricopiare.
