@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PythonTeach — Tastiera Italiana per Python</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0f14; --s1:#141720; --s2:#1a1e2e; --b1:#262b40; --b2:#303654;
+  --t1:#eef0f8; --t2:#8890b0; --t3:#525a7a; --t4:#323656;
+  --ac:#4f8ef7; --ac2:#7aaeff; --gn:#34d399; --gbg:rgba(52,211,153,.08); --gbr:rgba(52,211,153,.25);
+  --yw:#fbbf24; --ybg:rgba(251,191,36,.08); --ybr:rgba(251,191,36,.3);
+  --rd:#f87171; --rbg:rgba(248,113,113,.08); --rbr:rgba(248,113,113,.25);
+  --pu:#a78bfa; --pubg:rgba(167,139,250,.08); --pubr:rgba(167,139,250,.3);
+  --mono:'JetBrains Mono',monospace; --sans:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--t1);font-family:var(--sans);font-size:14px;line-height:1.6;padding-bottom:3rem;}
+header{background:rgba(13,15,20,.97);border-bottom:1px solid var(--b1);padding:1rem 1.5rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;}
+.logo{width:38px;height:38px;background:linear-gradient(135deg,#4f8ef7,#6d28d9);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;font-weight:700;color:#fff;}
+.logo-text h1{font-size:15px;font-weight:700;}
+.logo-text p{font-size:11px;color:var(--t3);}
+.print-btn{margin-left:auto;background:var(--s2);border:1px solid var(--b2);border-radius:7px;color:var(--t2);font-size:12px;padding:7px 14px;cursor:pointer;}
+.print-btn:hover{border-color:var(--ac);color:var(--ac2);}
+main{max-width:1000px;margin:0 auto;padding:1.5rem;}
+
+/* SEZIONE */
+.section{margin-bottom:2rem;}
+.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t4);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--b1);}
+
+/* AVVISO */
+.avviso{background:var(--ybg);border:1px solid var(--ybr);border-radius:10px;padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:13px;color:var(--t1);line-height:1.7;}
+.avviso strong{color:var(--yw);}
+
+/* TASTIERA VISUALE */
+.keyboard{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:1.2rem;margin-bottom:1.5rem;overflow-x:auto;}
+.kb-row{display:flex;gap:5px;margin-bottom:5px;justify-content:flex-start;}
+.key{
+  min-width:42px;height:52px;background:var(--s2);border:1px solid var(--b2);border-bottom:3px solid var(--t4);
+  border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:default;transition:all .15s;position:relative;padding:2px 4px;
+}
+.key:hover{border-color:var(--ac);background:rgba(79,142,247,.1);}
+.key.wide{min-width:64px;}
+.key.wider{min-width:80px;}
+.key.widest{min-width:100px;}
+.key.space{min-width:240px;}
+.key.highlighted{background:rgba(251,191,36,.12);border-color:var(--yw);border-bottom-color:rgba(251,191,36,.5);}
+.key.highlighted .py-char{color:var(--yw);}
+.key.altgr{background:rgba(79,142,247,.08);border-color:rgba(79,142,247,.4);border-bottom-color:rgba(79,142,247,.3);}
+.key.altgr .py-char{color:var(--ac2);}
+.key-top{font-size:9px;color:var(--t3);line-height:1;font-family:var(--mono);align-self:flex-start;width:100%;text-align:left;padding:2px 2px 0;}
+.key-main{font-size:13px;color:var(--t2);font-family:var(--mono);font-weight:600;}
+.key-altgr{font-size:9px;color:var(--ac2);align-self:flex-end;width:100%;text-align:right;padding:0 2px 2px;font-family:var(--mono);}
+.py-char{font-size:11px;font-weight:700;font-family:var(--mono);}
+
+/* LEGENDA COLORI */
+.legenda{display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--t2);}
+.leg-dot{width:12px;height:12px;border-radius:3px;}
+.leg-dot.standard{background:var(--s2);border:1px solid var(--b2);}
+.leg-dot.shift{background:rgba(251,191,36,.12);border:1px solid var(--yw);}
+.leg-dot.altgr{background:rgba(79,142,247,.08);border:1px solid rgba(79,142,247,.4);}
+
+/* TABELLA CARATTERI */
+.char-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px,1fr));gap:.85rem;margin-bottom:1.5rem;}
+.char-card{background:var(--s1);border:1px solid var(--b1);border-radius:10px;overflow:hidden;}
+.char-card-header{background:var(--s2);padding:.6rem .9rem;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--b1);}
+.char-symbol{font-family:var(--mono);font-size:20px;font-weight:700;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:7px;}
+.char-name{font-size:12px;font-weight:600;color:var(--t1);}
+.char-uso{font-size:11px;color:var(--t3);}
+.char-card-body{padding:.7rem .9rem;}
+.shortcut-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap;}
+.shortcut-label{font-size:10px;color:var(--t4);width:80px;flex-shrink:0;}
+.kbd{background:var(--s2);border:1px solid var(--b2);border-bottom:2px solid var(--t4);border-radius:5px;padding:2px 8px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--t1);display:inline-block;}
+.plus{font-size:11px;color:var(--t3);margin:0 1px;}
+.note-var{font-size:10px;color:var(--t3);margin-top:4px;font-style:italic;}
+.tip-box{background:var(--gbg);border:1px solid var(--gbr);border-radius:7px;padding:6px 9px;font-size:12px;color:var(--t1);margin-top:6px;}
+.tip-box strong{color:var(--gn);}
+
+/* USATO IN */
+.uso-badge{display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.2);border-radius:4px;padding:1px 6px;font-family:var(--mono);font-size:11px;color:var(--ac2);margin:1px;}
+
+/* TRUCCHI GOOGLE COLAB */
+.colab-tips{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:1.2rem;margin-bottom:1.5rem;}
+.tip-list{display:flex;flex-direction:column;gap:.6rem;}
+.tip-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.6;}
+.tip-num{background:var(--ac3,#2d6fd4);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.tip-item code{background:var(--s2);border:1px solid var(--b2);border-radius:4px;padding:1px 6px;font-family:var(--mono);font-size:12px;color:var(--ac2);}
+
+/* PRINT */
+@media print{
+  header .print-btn{display:none;}
+  body{background:#fff;color:#000;}
+  .char-card,.keyboard,.colab-tips,.avviso{border:1px solid #ccc;background:#f9f9f9;}
+  .kbd{background:#eee;border:1px solid #999;border-bottom:2px solid #666;color:#000;}
+  .char-symbol,.uso-badge,.tip-num{background:#ddd;color:#000;}
+  .key{background:#eee;border:1px solid #999;}
+  .key-main,.char-name,.key-top{color:#333;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">⌨</div>
+  <div class="logo-text">
+    <h1>PythonTeach — Tastiera Italiana per Python</h1>
+    <p>Come digitare i caratteri speciali con il layout italiano</p>
+  </div>
+  <button class="print-btn" onclick="window.print()">🖨️ Stampa</button>
+</header>
+
+<main>
+
+<!-- AVVISO -->
+<div class="avviso">
+  ⚠️ <strong>Nota importante:</strong> I tasti variano leggermente tra produttori (Lenovo, HP, Dell, Asus) e tra laptop e tastiere esterne.
+  Le combinazioni indicate funzionano sul layout <strong>QWERTY Italiano standard</strong>.
+  Se una combinazione non funziona, prova la variante indicata oppure copia il carattere dalla colonna "Copia".
+</div>
+
+<!-- LEGENDA -->
+<div class="section">
+  <div class="section-title">Legenda colori sulla tastiera</div>
+  <div class="legenda">
+    <div class="leg-item"><div class="leg-dot standard"></div> Tasto standard — nessun modificatore</div>
+    <div class="leg-item"><div class="leg-dot shift"></div> Con Shift ⇧</div>
+    <div class="leg-item"><div class="leg-dot altgr"></div> Con Alt Gr (tasto destro di Alt)</div>
+  </div>
+
+  <!-- TASTIERA VISUALE -->
+  <div class="keyboard">
+    <div class="kb-row">
+      <div class="key"><span class="key-top">~</span><span class="key-main">\</span><span class="key-altgr">|</span></div>
+      <div class="key"><span class="key-top">!</span><span class="key-main">1</span></div>
+      <div class="key"><span class="key-top">"</span><span class="key-main">2</span><span class="key-altgr">²</span></div>
+      <div class="key"><span class="key-top">£</span><span class="key-main">3</span><span class="key-altgr">³</span></div>
+      <div class="key"><span class="key-top">$</span><span class="key-main">4</span><span class="key-altgr">¼</span></div>
+      <div class="key"><span class="key-top">%</span><span class="key-main">5</span></div>
+      <div class="key"><span class="key-top">&amp;</span><span class="key-main">6</span></div>
+      <div class="key highlighted"><span class="key-top">/</span><span class="key-main">7</span><span class="key-altgr py-char">{</span></div>
+      <div class="key highlighted"><span class="key-top">(</span><span class="key-main">8</span><span class="key-altgr py-char">[</span></div>
+      <div class="key highlighted"><span class="key-top">)</span><span class="key-main">9</span><span class="key-altgr py-char">]</span></div>
+      <div class="key highlighted"><span class="key-top">=</span><span class="key-main">0</span><span class="key-altgr py-char">}</span></div>
+      <div class="key highlighted"><span class="key-top">?</span><span class="key-main">'</span></div>
+      <div class="key"><span class="key-top">^</span><span class="key-main">ì</span></div>
+      <div class="key wider"><span class="key-main" style="font-size:11px;">← Backspace</span></div>
+    </div>
+    <div class="kb-row">
+      <div class="key widest"><span class="key-main" style="font-size:11px;">Tab ⇥</span></div>
+      <div class="key"><span class="key-main">Q</span></div>
+      <div class="key"><span class="key-main">W</span></div>
+      <div class="key"><span class="key-main">E</span><span class="key-altgr">€</span></div>
+      <div class="key"><span class="key-main">R</span></div>
+      <div class="key"><span class="key-main">T</span></div>
+      <div class="key"><span class="key-main">Y</span></div>
+      <div class="key"><span class="key-main">U</span></div>
+      <div class="key"><span class="key-main">I</span></div>
+      <div class="key"><span class="key-main">O</span></div>
+      <div class="key"><span class="key-main">P</span></div>
+      <div class="key altgr"><span class="key-top">?</span><span class="key-main">è</span><span class="key-altgr py-char">[</span></div>
+      <div class="key altgr"><span class="key-top">^</span><span class="key-main">+</span><span class="key-altgr py-char">]</span></div>
+      <div class="key wide"><span class="key-main" style="font-size:10px;">Invio ↵</span></div>
+    </div>
+    <div class="kb-row">
+      <div class="key widest"><span class="key-main" style="font-size:11px;">Caps Lock</span></div>
+      <div class="key"><span class="key-main">A</span></div>
+      <div class="key"><span class="key-main">S</span></div>
+      <div class="key"><span class="key-main">D</span></div>
+      <div class="key"><span class="key-main">F</span></div>
+      <div class="key"><span class="key-main">G</span></div>
+      <div class="key"><span class="key-main">H</span></div>
+      <div class="key"><span class="key-main">J</span></div>
+      <div class="key"><span class="key-main">K</span></div>
+      <div class="key"><span class="key-main">L</span></div>
+      <div class="key highlighted"><span class="key-top">°</span><span class="key-main">ò</span><span class="key-altgr py-char">@</span></div>
+      <div class="key highlighted"><span class="key-top">#</span><span class="key-main">à</span><span class="key-altgr py-char">#</span></div>
+      <div class="key altgr"><span class="key-top">*</span><span class="key-main">ù</span></div>
+    </div>
+    <div class="kb-row">
+      <div class="key wider"><span class="key-main" style="font-size:11px;">Shift ⇧</span></div>
+      <div class="key"><span class="key-top">&gt;</span><span class="key-main">&lt;</span></div>
+      <div class="key"><span class="key-main">Z</span></div>
+      <div class="key"><span class="key-main">X</span></div>
+      <div class="key"><span class="key-main">C</span></div>
+      <div class="key"><span class="key-main">V</span></div>
+      <div class="key"><span class="key-main">B</span></div>
+      <div class="key"><span class="key-main">N</span></div>
+      <div class="key highlighted"><span class="key-top">&lt;</span><span class="key-main">M</span></div>
+      <div class="key highlighted"><span class="key-top">;</span><span class="key-main">,</span></div>
+      <div class="key highlighted"><span class="key-top">:</span><span class="key-main">.</span></div>
+      <div class="key highlighted"><span class="key-top">_</span><span class="key-main">-</span></div>
+      <div class="key widest"><span class="key-main" style="font-size:11px;">Shift ⇧</span></div>
+    </div>
+    <div class="kb-row">
+      <div class="key wide"><span class="key-main" style="font-size:10px;">Ctrl</span></div>
+      <div class="key wide"><span class="key-main" style="font-size:10px;">Win ⊞</span></div>
+      <div class="key wide"><span class="key-main" style="font-size:10px;">Alt</span></div>
+      <div class="key space"><span class="key-main">Spazio</span></div>
+      <div class="key wide" style="background:rgba(79,142,247,.15);border-color:rgba(79,142,247,.5);"><span class="key-main" style="color:var(--ac2);font-size:10px;font-weight:700;">Alt Gr</span></div>
+      <div class="key wide"><span class="key-main" style="font-size:10px;">Ctrl</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TABELLA CARATTERI -->
+<div class="section">
+  <div class="section-title">Tutti i caratteri speciali Python — layout italiano</div>
+  <div class="char-grid">
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(251,191,36,.15);color:var(--yw);">()</div>
+        <div><div class="char-name">Parentesi tonde</div><div class="char-uso">Funzioni, condizioni, cicli</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">( aperta</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">8</div></div>
+        <div class="shortcut-row"><span class="shortcut-label">) chiusa</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">9</div></div>
+        <div class="tip-box">💡 <strong>Usate in:</strong> <span class="uso-badge">print()</span> <span class="uso-badge">input()</span> <span class="uso-badge">int()</span> <span class="uso-badge">range()</span></div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(79,142,247,.15);color:var(--ac2);">[]</div>
+        <div><div class="char-name">Parentesi quadre</div><div class="char-uso">Liste, indici, dizionari</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">[ aperta</span><div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">è</div></div>
+        <div class="shortcut-row"><span class="shortcut-label"></span><em style="font-size:10px;color:var(--t3);">oppure</em> <div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">8</div></div>
+        <div class="shortcut-row"><span class="shortcut-label">] chiusa</span><div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">+</div></div>
+        <div class="shortcut-row"><span class="shortcut-label"></span><em style="font-size:10px;color:var(--t3);">oppure</em> <div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">9</div></div>
+        <div class="tip-box">💡 <strong>Usate in:</strong> <span class="uso-badge">lista = [1, 2, 3]</span> <span class="uso-badge">lista[0]</span></div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(167,139,250,.15);color:var(--pu);">{}</div>
+        <div><div class="char-name">Parentesi graffe</div><div class="char-uso">Dizionari, insiemi, f-string</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">{ aperta</span><div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">è</div></div>
+        <div class="shortcut-row"><span class="shortcut-label"></span><em style="font-size:10px;color:var(--t3);">oppure</em> <div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">7</div></div>
+        <div class="shortcut-row"><span class="shortcut-label">} chiusa</span><div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">+</div></div>
+        <div class="shortcut-row"><span class="shortcut-label"></span><em style="font-size:10px;color:var(--t3);">oppure</em> <div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">0</div></div>
+        <div class="tip-box">💡 <strong>Usate in:</strong> <span class="uso-badge">{"chiave": valore}</span> <span class="uso-badge">f"{variabile}"</span></div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(52,211,153,.1);color:var(--gn);">" '</div>
+        <div><div class="char-name">Virgolette</div><div class="char-uso">Stringhe di testo</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">" doppie</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">2</div></div>
+        <div class="shortcut-row"><span class="shortcut-label">' singole</span><span style="font-size:12px;color:var(--t2);">Il tasto con <strong>'</strong> e <strong>?</strong> (vicino a Invio)</span></div>
+        <div class="tip-box">💡 <strong>Usate in:</strong> <span class="uso-badge">nome = "Marco"</span> <span class="uso-badge">print('Ciao')</span></div>
+        <div class="note-var">⚠️ Devono essere uguali: apri e chiudi con lo stesso tipo</div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(251,191,36,.1);color:var(--yw);">#</div>
+        <div><div class="char-name">Cancelletto (hash)</div><div class="char-uso">Commenti nel codice</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">#</span><div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">à</div></div>
+        <div class="shortcut-row"><span class="shortcut-label"></span><em style="font-size:10px;color:var(--t3);">oppure</em> <div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">à</div></div>
+        <div class="tip-box">💡 <strong>Usato in:</strong> <span class="uso-badge"># questo è un commento</span></div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(79,142,247,.1);color:var(--ac2);">_</div>
+        <div><div class="char-name">Trattino basso (underscore)</div><div class="char-uso">Nomi variabili con più parole</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">_</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">-</div></div>
+        <div class="tip-box">💡 <strong>Usato in:</strong> <span class="uso-badge">numero_studenti</span> <span class="uso-badge">eta_mario</span></div>
+        <div class="note-var">⚠️ MAI usare lo spazio nei nomi variabile: usa _ al suo posto</div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(52,211,153,.1);color:var(--gn);">:</div>
+        <div><div class="char-name">Due punti (colon)</div><div class="char-uso">if, for, while, def, class</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">:</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">.</div></div>
+        <div class="tip-box">💡 <strong>Usato in:</strong> <span class="uso-badge">if x > 0:</span> <span class="uso-badge">for i in range(5):</span> <span class="uso-badge">def funzione():</span></div>
+        <div class="note-var">⚠️ Non dimenticarlo mai — senza : Python dà SyntaxError</div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(167,139,250,.1);color:var(--pu);">@</div>
+        <div><div class="char-name">Chiocciola (at)</div><div class="char-uso">Decoratori Python</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">@</span><div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">ò</div></div>
+        <div class="tip-box">💡 <strong>Usato in:</strong> <span class="uso-badge">@staticmethod</span> <span class="uso-badge">@property</span></div>
+        <div class="note-var">Per i principianti: si usa raramente all'inizio</div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(248,113,113,.1);color:var(--rd);">\</div>
+        <div><div class="char-name">Backslash</div><div class="char-uso">Sequenze di escape nel testo</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">\</span><div class="kbd">Alt Gr</div><span class="plus">+</span><div class="kbd">ì</div></div>
+        <div class="shortcut-row"><span class="shortcut-label"></span><em style="font-size:10px;color:var(--t3);">oppure tasto</em> <div class="kbd">\</div> <span style="font-size:10px;color:var(--t3);">(vicino a Backspace)</span></div>
+        <div class="tip-box">💡 <strong>Usato in:</strong> <span class="uso-badge">"\n" = vai a capo</span> <span class="uso-badge">"\t" = tab</span></div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(52,211,153,.1);color:var(--gn);">= ==</div>
+        <div><div class="char-name">Uguale e doppio uguale</div><div class="char-uso">Assegnazione e confronto</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">= assegna</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">0</div><span style="font-size:10px;color:var(--t3);margin-left:4px;">oppure tasto = diretto</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">== confronta</span><span style="font-size:12px;color:var(--t2);">Premi = due volte</span></div>
+        <div class="tip-box">💡 <span class="uso-badge">eta = 30</span> assegna · <span class="uso-badge">eta == 30</span> confronta</div>
+        <div class="note-var">⚠️ = e == sono diversi: = mette dentro, == chiede "sono uguali?"</div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(251,191,36,.1);color:var(--yw);">&lt; &gt;</div>
+        <div><div class="char-name">Maggiore e minore</div><div class="char-uso">Confronti e operatori</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">&lt; minore</span><span style="font-size:12px;color:var(--t2);">Tasto <strong>&lt;</strong> (a sinistra di Z)</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">&gt; maggiore</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">&lt;</div></div>
+        <div class="shortcut-row"><span class="shortcut-label">&lt;= minoreuguale</span><span style="font-size:12px;color:var(--t2);">Digita &lt; poi =</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">&gt;= maggioreuguale</span><span style="font-size:12px;color:var(--t2);">Digita &gt; poi =</span></div>
+        <div class="tip-box">💡 <strong>Usati in:</strong> <span class="uso-badge">if eta > 18:</span> <span class="uso-badge">while x < 10:</span></div>
+      </div>
+    </div>
+
+    <div class="char-card">
+      <div class="char-card-header">
+        <div class="char-symbol" style="background:rgba(79,142,247,.1);color:var(--ac2);">+ - * /</div>
+        <div><div class="char-name">Operatori aritmetici</div><div class="char-uso">Calcoli matematici</div></div>
+      </div>
+      <div class="char-card-body">
+        <div class="shortcut-row"><span class="shortcut-label">+ somma</span><span style="font-size:12px;color:var(--t2);">Tasto + (vicino a Invio)</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">- sottrai</span><span style="font-size:12px;color:var(--t2);">Tasto - (vicino a +)</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">* moltiplica</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">ù</div><span style="font-size:10px;color:var(--t3);margin-left:4px;">oppure * sul tastierino numerico</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">/ dividi</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">7</div><span style="font-size:10px;color:var(--t3);margin-left:4px;">oppure / sul tastierino</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">** potenza</span><span style="font-size:12px;color:var(--t2);">Digita * due volte</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">// div. intera</span><span style="font-size:12px;color:var(--t2);">Digita / due volte</span></div>
+        <div class="shortcut-row"><span class="shortcut-label">% modulo</span><div class="kbd">Shift</div><span class="plus">+</span><div class="kbd">5</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TRUCCHI COLAB -->
+<div class="section">
+  <div class="section-title">Trucchi pratici in Google Colab</div>
+  <div class="colab-tips">
+    <div class="tip-list">
+      <div class="tip-item">
+        <div class="tip-num">1</div>
+        <div><strong>Completamento automatico:</strong> in Colab puoi premere <span class="kbd">Tab</span> dopo aver scritto le prime lettere di un comando. Colab completa automaticamente il nome. Es: scrivi <code>pri</code> e premi Tab → appare <code>print</code>.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">2</div>
+        <div><strong>Copia e incolla:</strong> se non trovi un carattere, copialo direttamente da questa scheda. Clic sul carattere qui sotto, poi <span class="kbd">Ctrl</span>+<span class="kbd">C</span> per copiare e <span class="kbd">Ctrl</span>+<span class="kbd">V</span> per incollare.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">3</div>
+        <div><strong>Esegui una cella:</strong> <span class="kbd">Shift</span> + <span class="kbd">Invio</span> esegue la cella corrente e va alla successiva. <span class="kbd">Ctrl</span> + <span class="kbd">Invio</span> esegue e rimane sulla stessa cella.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">4</div>
+        <div><strong>Nuova cella codice:</strong> clicca su <strong>+ Codice</strong> in alto, oppure premi <span class="kbd">B</span> con la cella selezionata (non in modalità modifica).</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">5</div>
+        <div><strong>Commenta più righe in un colpo:</strong> seleziona le righe e premi <span class="kbd">Ctrl</span> + <span class="kbd">/</span> (barra obliqua). Ogni riga selezionata diventa un commento con #.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">6</div>
+        <div><strong>Indentazione rapida:</strong> seleziona le righe da indentare e premi <span class="kbd">Tab</span> per aggiungere l'indentazione, <span class="kbd">Shift</span> + <span class="kbd">Tab</span> per toglierla.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">7</div>
+        <div><strong>Annulla l'ultima azione:</strong> <span class="kbd">Ctrl</span> + <span class="kbd">Z</span>. Funziona anche dentro le celle di Colab.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COPIA RAPIDA -->
+<div class="section">
+  <div class="section-title">Copia rapida — clicca sul carattere per copiarlo</div>
+  <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
+    <script>
+    const chars = [
+      {c:'(', n:'parentesi tonda aperta'},
+      {c:')', n:'parentesi tonda chiusa'},
+      {c:'[', n:'parentesi quadra aperta'},
+      {c:']', n:'parentesi quadra chiusa'},
+      {c:'{', n:'parentesi graffa aperta'},
+      {c:'}', n:'parentesi graffa chiusa'},
+      {c:'"', n:'virgolette doppie'},
+      {c:"'", n:'virgolette singole'},
+      {c:'#', n:'cancelletto'},
+      {c:'_', n:'underscore'},
+      {c:':', n:'due punti'},
+      {c:'@', n:'chiocciola'},
+      {c:'\\', n:'backslash'},
+      {c:'=', n:'uguale'},
+      {c:'==', n:'doppio uguale'},
+      {c:'!=', n:'diverso da'},
+      {c:'<', n:'minore'},
+      {c:'>', n:'maggiore'},
+      {c:'<=', n:'minore o uguale'},
+      {c:'>=', n:'maggiore o uguale'},
+      {c:'+', n:'più'},
+      {c:'-', n:'meno'},
+      {c:'*', n:'moltiplicazione'},
+      {c:'/', n:'divisione'},
+      {c:'**', n:'potenza'},
+      {c:'//', n:'divisione intera'},
+      {c:'%', n:'modulo'},
+      {c:'+=', n:'incremento'},
+      {c:'-=', n:'decremento'},
+      {c:'f"', n:'inizio f-string'},
+      {c:'print()', n:'print'},
+      {c:'input()', n:'input'},
+      {c:'range()', n:'range'},
+    ];
+    document.write(chars.map(({c,n})=>
+      `<div onclick="navigator.clipboard.writeText('${c.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}');this.style.background='rgba(52,211,153,.2)';setTimeout(()=>this.style.background='',600);"
+        title="${n}"
+        style="background:var(--s2);border:1px solid var(--b2);border-radius:7px;padding:8px 14px;font-family:var(--mono);font-size:16px;font-weight:700;color:var(--ac2);cursor:pointer;transition:all .2s;user-select:none;">
+        ${c.replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+      </div>`
+    ).join(''));
+    </script>
+  </div>
+  <p style="font-size:11px;color:var(--t3);margin-top:.8rem;">Clicca su un carattere — diventa verde quando è stato copiato. Poi incolla con Ctrl+V in Colab.</p>
+</div>
+
+</main>
+</body>
+</html>
